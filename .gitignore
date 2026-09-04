@@ -1,0 +1,9 @@
+.credentials.json
+auth.json
+projects/
+telemetry/
+sessions/
+shell-snapshots/
+history.jsonl
+*.sqlite*
+plugins/cache/
