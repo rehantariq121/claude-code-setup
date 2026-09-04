@@ -88,7 +88,7 @@ suffix (`-low` / `-medium` / `-high`), not a separate flag.
 
 Codex over-engineers by default. Use all three levers — instructions alone are not enough.
 
-1. **Effort.** `~/.codex/config.toml` pins `high` globally, which is why Codex goes too deep. Override per call with `-c model_reasoning_effort="medium"` for ordinary work; keep `high` for root-cause hunts and algorithms. Spark is the exception — always `xhigh`, never lower. A task cheap enough to justify lowering effort is a T1 that Claude does inline.
+1. **Effort.** `~/.codex/config.toml` sets `model_reasoning_effort = "medium"` globally, which matches T3 ordinary work. Raise it per call with `-c model_reasoning_effort="high"` for root-cause hunts and algorithms — that is the only reason to go up. Spark is the exception — always `xhigh`, never lower. A task cheap enough to justify going below `medium` is a T1 that Claude does inline. Verify the global value before trusting this line; a drifted config is why Codex suddenly goes too deep.
 2. **Standing constraints.** `~/.codex/AGENTS.md` carries a `scope-control` block (no new files, deps, or abstractions; ~150-line / 3-file diff budget). It loads every run. Do not delete it.
 3. **Prompt shape.** Always name the files — unbounded file scope is what lets it wander. If you cannot name them, run `--sandbox read-only` first, then send a scoped edit request.
 

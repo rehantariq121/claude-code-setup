@@ -96,8 +96,9 @@ anything irreversible.
 Codex over-engineers by default. Instructions alone do not fix it — this setup uses three levers
 together:
 
-1. **Effort.** Override per call with `-c model_reasoning_effort="medium"` for ordinary work. Keep
-   `high` for root-cause hunts. Spark is the exception: always `xhigh`.
+1. **Effort.** `codex/config.toml` sets `medium` globally, which matches ordinary work. Raise it per
+   call with `-c model_reasoning_effort="high"` for root-cause hunts and algorithms — that is the
+   only reason to go up. Spark is the exception: always `xhigh`.
 2. **Standing constraints.** `codex/AGENTS.md` carries a `scope-control` block — no new files, no
    new dependencies, no new abstractions, a ~150-line / 3-file diff budget — plus hard limits, a
    five-question self-audit, and a definition of "done". It loads on every run.
